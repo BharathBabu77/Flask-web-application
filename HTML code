@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Data Visualization</title>
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+</head>
+
+<body>
+
+<div id="chart"></div>
+
+<label for="filter-select">Select Filter:</label>
+
+<select id="filter-select">
+
+<option value="topic">Topic</option>
+
+<option value="region">Region</option>
+
+<option value="end_year">End Year</option>
+
+<option value="intensity">Intensity</option>
+
+<option value="sector">Sector</option>
+
+<option value="start_year">Start Year</option>
+
+<option value="impact">Impact</option>
+
+<option value="country">Country</option>
+
+<option value="relevance">Relevance</option>
+
+<option value="pestle">Pestle</option>
+
+<option value="likelihood">Likelihood</option>
+
+</select>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>
