@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html ng-app="myApp">
+
+<head>
+
+<title>Data Visualization</title>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+
+<body ng-controller="MainController">
+
+<div id="chart" style="width: 80%; margin: 20px auto;"></div>
+
+<label for="filter-select">Select Filter:</label>
+
+<select id="filter-select" ng-model="selectedFilter" ng-change="updateChart()">
+
+<option value="topic">Topic</option>
+
+<option value="region">Region</option>
+
+<option value="end_year">End Year</option>
+
+<option value="intensity">Intensity</option>
+
+<option value="sector">Sector</option>
+
+<option value="start_year">Start Year</option>
+
+<option value="impact">Impact</option>
+
+<option value="country">Country</option>
+
+<option value="relevance">Relevance</option>
+
+<option value="pestle">Pestle</option>
+
+<option value="likelihood">Likelihood</option>
+
+</select>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+
+<script src="app.js"></script>
+
+</body>
+
+</html>
