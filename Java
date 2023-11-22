@@ -1,0 +1,77 @@
+// script.js
+
+document.addEventListener("DOMContentLoaded", function() {
+
+var filterSelect = document.getElementById("filter-select");
+
+filterSelect.addEventListener('change', function() {
+
+var selectedFilter = filterSelect.value;
+
+updateChart(selectedFilter);
+
+});
+
+function updateChart(selectedFilter) {
+
+fetch('/get_data', {
+
+method: 'POST',
+
+headers: {
+
+'Content-Type': 'application/json'
+
+},
+
+body: JSON.stringify({ filter: selectedFilter })
+
+})
+
+.then(response => response.json())
+
+.then(data => {
+
+var labels = data.labels;
+
+var counts = data.counts;
+
+var chartData = {
+
+x: labels,
+
+y: counts,
+
+type: 'bar',
+
+};
+
+var layout = {
+
+title: `Data Visualization by ${selectedFilter}`,
+
+xaxis: { title: selectedFilter },
+
+yaxis: { title: 'Count' }
+
+};
+
+var config = {
+
+responsive: true
+
+};
+
+Plotly.purge('chart');
+
+Plotly.newPlot('chart', [chartData], layout, config);
+
+})
+
+.catch(error => console.error(error));
+
+}
+
+updateChart(filterSelect.value);
+
+});
